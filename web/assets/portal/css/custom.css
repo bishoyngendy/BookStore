@@ -1,0 +1,210 @@
+/* Add here all your CSS customizations */
+.sidebar.shop-sidebar .panel-group {
+	margin-bottom: 40px;
+}
+.sidebar.shop-sidebar .panel-group .panel + .panel {
+	margin-top: 14px;
+}
+.sidebar.shop-sidebar .panel.panel-default {
+	border-radius: 6.99px;
+	border: none;
+}
+.sidebar.shop-sidebar .panel.panel-default .panel-heading {
+	border-radius: 0;
+}
+.sidebar.shop-sidebar .panel.panel-default .panel-heading .panel-title {
+	margin: 0;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #777;
+}
+.sidebar.shop-sidebar .panel.panel-default .panel-heading a {
+	position: relative;
+	border-radius: 6.99px 6.99px 0 0;
+	padding-top: 11.5px;
+	padding-bottom: 11.5px;
+	padding-right: 45px;
+	color: #777;
+	border: 1px solid #ddd;
+}
+.sidebar.shop-sidebar .panel.panel-default .panel-heading a:before {
+	font-family: 'FontAwesome';
+	content: "\f0d8";
+	width: 26px;
+	height: 26px;
+	display: block;
+	border: 1px solid #ddd;
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	margin-top: -13px;
+	border-radius: 3px;
+	color: #ccc;
+	text-align: center;
+	line-height: 24px;
+	background-color: #fff;
+	font-size: 10px;
+}
+.sidebar.shop-sidebar .panel.panel-default .panel-heading a:hover:before {
+	background-color: #3b3b3b;
+	border-color: #3b3b3b;
+	color: #fff;
+}
+.sidebar.shop-sidebar .panel.panel-default .panel-heading a.collapsed {
+	border-radius: 6.99px;
+}
+.sidebar.shop-sidebar .panel.panel-default .panel-heading a.collapsed:before {
+	content: "\f0d7";
+}
+.sidebar.shop-sidebar .panel.panel-default .panel-body {
+	padding: 15px 15px 7px;
+	border: 1px solid #ddd;
+	border-top: none;
+	border-radius: 0 0 6.99px 6.99px;
+	background-color: #fbfbfb;
+}
+.sidebar.shop-sidebar .filter-price {
+	margin: 14px 0 9px;
+}
+.sidebar.shop-sidebar .filter-price #price-slider {
+	margin-bottom: 20px;
+}
+.sidebar.shop-sidebar .filter-price .noUi-target {
+	background: #eee;
+	border-radius: 0;
+	border: none;
+	box-shadow: none;
+}
+.sidebar.shop-sidebar .filter-price .noUi-handle {
+	background: #3b3b3b;
+	cursor: pointer;
+	border-radius: 5px;
+	border: none;
+	box-shadow: none;
+}
+.sidebar.shop-sidebar .filter-price .noUi-handle:before, .sidebar.shop-sidebar .filter-price .noUi-handle:after {
+	display: none;
+}
+.sidebar.shop-sidebar .filter-price .noUi-horizontal {
+	position: relative;
+	height: 7px;
+}
+.sidebar.shop-sidebar .filter-price .noUi-horizontal .noUi-handle {
+	position: absolute;
+	width: 13px;
+	height: 18px;
+	border: 0;
+	left: -6.5px;
+	top: -6px;
+}
+.sidebar.shop-sidebar .filter-price .noUi-horizontal .noUi-base .noUi-origin {
+	position: absolute;
+}
+.sidebar.shop-sidebar .filter-price .noUi-connect {
+	background-color: #616161;
+	box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45);
+}
+.sidebar.shop-sidebar .filter-price .filter-price-details {
+	text-align: center;
+}
+.sidebar.shop-sidebar .filter-price .filter-price-details * {
+	white-space: normal;
+}
+.sidebar.shop-sidebar .filter-price .filter-price-details span {
+	vertical-align: middle;
+	line-height: 26px;
+}
+.sidebar.shop-sidebar .filter-price .filter-price-details .form-control {
+	display: inline-block;
+	vertical-align: middle;
+	color: #a3a2a2;
+	padding: 2px 5px;
+	font-size: 14px;
+	margin: 0 2px;
+	width: 50px;
+	height: 26px;
+}
+.sidebar.shop-sidebar .filter-price .filter-price-details .btn {
+	border: none;
+	height: 26px;
+	line-height: 26px;
+	color: #fff;
+	border-radius: 5px;
+	padding: 0 10px;
+	font-size: 14px;
+	margin: 5px 0;
+}
+.sidebar.shop-sidebar ul, .sidebar.shop-sidebar ol {
+	padding: 0;
+	margin: -7px 0 0;
+	list-style: none;
+}
+.sidebar.shop-sidebar ul li a, .sidebar.shop-sidebar ol li a {
+	color: #777;
+	line-height: 2.5;
+}
+.sidebar.shop-sidebar .configurable-filter-list {
+	padding: 0;
+	margin: 0 -5px;
+	list-style: none;
+	font-size: 0;
+}
+.sidebar.shop-sidebar .configurable-filter-list li {
+	display: inline-block;
+	margin: 0 5px 8px;
+}
+.sidebar.shop-sidebar .configurable-filter-list li a {
+	display: block;
+	color: #777;
+	width: 30px;
+	height: 30px;
+	font-size: 14px;
+	line-height: 28px;
+	background: #f4f4f4;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	float: left;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.sidebar.shop-sidebar .configurable-filter-list li a:hover {
+	border-color: #3b3b3b;
+	text-decoration: none;
+}
+.sidebar.shop-sidebar .configurable-filter-list.filter-list-color li a {
+	padding: 1px;
+}
+.sidebar.shop-sidebar .configurable-filter-list.filter-list-color li a span {
+	display: inline-block;
+	width: 26px;
+	height: 26px;
+	border-radius: 3px;
+}
+.sidebar.shop-sidebar h4 {
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+.sidebar.shop-sidebar .owl-carousel .owl-nav {
+	top: -28px;
+	width: auto;
+	right: 5px;
+	margin: 0;
+	line-height: 1;
+}
+.sidebar.shop-sidebar .owl-carousel .owl-nav .owl-prev,
+.sidebar.shop-sidebar .owl-carousel .owl-nav .owl-next {
+	font-size: 16px;
+	line-height: 1;
+	min-width: 18px;
+}
+
+.onsale {
+	background-color: #cc0000;
+	border-bottom-color: #b30000;
+}
+
+.price-range-input {
+	width: 45px !important;
+}

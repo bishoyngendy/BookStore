@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Report 1-1" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e15d519-eab3-497d-b483-a5c1caac3ee0">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="467"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="521"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="basePath" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT SUM(QUANTITY) AS TOTAL_QUANTITY, SUM(PAYED) AS TOTAL_PAYED
+FROM (
+	SELECT ISBN, TITLE, SUM(BOOK_QUANTITY) AS QUANTITY, SUM(BOOK_QUANTITY) * BOOK.PRICE AS PAYED
+	FROM USER_ORDER_DETAILS INNER JOIN USER_ORDER ON USER_ORDER_DETAILS.USER_ORDER_ID = USER_ORDER.ID
+													INNER JOIN BOOK ON USER_ORDER_DETAILS.BOOK_ISBN = BOOK.ISBN
+	WHERE EXTRACT(YEAR_MONTH FROM ISSUE_DATE) = EXTRACT(YEAR_MONTH FROM CURDATE() - INTERVAL 1 MONTH)
+	GROUP BY BOOK.ISBN
+) AS BOOK_QUERY;]]>
+	</queryString>
+	<field name="TOTAL_QUANTITY" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="TOTAL_QUANTITY"/>
+	</field>
+	<field name="TOTAL_PAYED" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="TOTAL_PAYED"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="ea5ad761-92e5-4024-9d51-efba4363bb54"/>
+				<imageExpression><![CDATA[$P{basePath}+"banner.jpeg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="91f5fe7f-a65f-46a3-81ae-30f2d82c45a2"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Online Bookstore]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="20" y="46" width="254" height="22" uuid="6931f6fc-c9e8-4cc3-9eec-607a123c87f7"/>
+				<text><![CDATA[Total Sales]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="2c4ebb21-8745-45a1-a9ad-477acaac72cb"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="277" height="15" uuid="853a8939-7b63-4cdb-8689-1b3dd66a2033">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9cb4c5f7-21d8-4470-a84b-7cac6f8a81f6"/>
+				</reportElement>
+				<text><![CDATA[TOTAL_QUANTITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="277" y="19" width="277" height="15" uuid="3096abb1-2580-4846-b0f0-516c4c01d8a1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="46faf3b0-12c1-43f1-8523-6366bbd8ffcc"/>
+				</reportElement>
+				<text><![CDATA[TOTAL_PAYED]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="ffde0804-90e8-496b-86fb-ee363619f187"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="277" height="15" uuid="b5e39b8c-bcb7-47ec-b917-12104faf089f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9cb4c5f7-21d8-4470-a84b-7cac6f8a81f6"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{TOTAL_QUANTITY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="277" y="0" width="277" height="15" uuid="d4d95e99-3cb4-461a-8169-bf35a16bd4ff">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="46faf3b0-12c1-43f1-8523-6366bbd8ffcc"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{TOTAL_PAYED}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="30093aa1-3dd7-4eea-9cc9-e183637af8f4"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="c9e9a989-76ae-4c92-a08c-dba3c3185f04"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="736cac2d-8f9a-48bb-b4e7-09302ce0e313"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="c49bc611-71b3-4860-8112-76288860b48d"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
