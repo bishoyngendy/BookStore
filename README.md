@@ -1,5 +1,6 @@
 # BookStore
 An online bookstore implemented with java with an admin panel to sell books
+### Features
 #### As a manager I can:
 - List all books
 ![LIST_BOOKS](/screenshots/books_admin.jpg?raw=true)
